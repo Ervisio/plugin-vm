@@ -1,0 +1,27 @@
+{
+  "name": "ervisio-plugin-vm",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "repository": {"type": "git", "url": "https://github.com/Ervisio/plugin-vm.git"},
+  "scripts": {
+    "build": "tsc --noEmit && vite build && ervisio-plugin-pack copy",
+    "dev": "vite build --watch",
+    "pack": "ervisio-plugin-pack pack",
+    "typecheck": "tsc --noEmit",
+    "test": "python3 -B -m unittest discover -s tests -p 'test_*.py'",
+    "check": "npm run test && npm run typecheck"
+  },
+  "devDependencies": {
+    "@ervisio/plugin-sdk": "github:Ervisio/plugin-sdk#v0.2.0",
+    "@types/react": "^18.3.31",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.2"
+  },
+  "dependencies": {
+    "@novnc/novnc": "^1.7.0",
+    "@xterm/xterm": "^5.5.0",
+    "@xterm/addon-fit": "^0.10.0"
+  }
+}
