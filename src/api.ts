@@ -74,6 +74,6 @@ export const api={
     path,confirm:'ATTACH PHYSICAL DEVICE',writable,writeConfirm:writable?'I ACCEPT DATA LOSS':''}),
   deleteImage:(name:string)=>request<{ok:true}>('DELETE',`/v1/images/${encodeURIComponent(name)}`),
   uploadImage:(file:File,onProgress:(loaded:number,total:number)=>void)=>getSdk().api.upload('vm-control',
-    {method:'POST',path:'/v1/images/upload',query:{name:file.name}},file,{onProgress}),
+    {method:'POST',path:'/v1/images/upload',query:{name:file.name}},file,{onProgress:({loaded,total})=>onProgress(loaded,total)}),
   openConsole:(name:string,kind:'vnc'|'serial')=>request<{ok:true;token:string}>('POST','/v1/console',{name,kind})
 };
